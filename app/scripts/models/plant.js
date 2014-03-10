@@ -2,7 +2,10 @@ App.Plant = DS.Model.extend({
   name: DS.attr("string"),
   description: DS.attr("string"),
   image: DS.attr("string"),
-  family: DS.attr("string")
+  family: DS.attr("string"),
+  snippet: function() {
+    return this.get('description').substring(0, 50) + '...';
+  }.property('firstName', 'lastName')
 })
 
 App.Plant.FIXTURES = [
